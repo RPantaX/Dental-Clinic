@@ -48,7 +48,7 @@
 							<td>${pa.celularPac}</td>
 							<td>${pa.fechaRegPac}</td>
 							<td><img src="images/edit32.png"> <a href="${pageContext.request.contextPath}/PacienteServlet?opcion=bus&cod=${pa.idPac}"> Actualizar </a></td>
-			      			<td> <img src="images/delete32.png"> <a href="${pageContext.request.contextPath}/Paciente?opcion=eli&cod=${pa.idPac}"> Eliminar </a></td>
+			      			<td> <img src="images/delete32.png"> <a href="${pageContext.request.contextPath}/PacienteServlet?opcion=eli&cod=${pa.idPac}"> Eliminar </a></td>
 							
 						</tr>
 					</c:forEach>

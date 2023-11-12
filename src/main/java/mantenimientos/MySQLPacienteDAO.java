@@ -117,13 +117,12 @@ public class MySQLPacienteDAO implements PacienteDAO{
 			String sql = "INSERT INTO PACIENTE VALUES(null,?,?,?,?,?,?)";
 			ps = cn.prepareStatement(sql);
 			// Parametrizar el PreparedStatement
-			ps.setInt(1, paciente.getIdPac());
-			ps.setString(2, paciente.getNombrePac());
-			ps.setString(3, paciente.getPrimerApePac());
-			ps.setString(4, paciente.getSegundoApePac());
-			ps.setString(5, paciente.getEmailPac());
-			ps.setInt(6, paciente.getCelularPac());
-			ps.setString(7, paciente.getFechaRegPac());
+			ps.setString(1, paciente.getNombrePac());
+			ps.setString(2, paciente.getPrimerApePac());
+			ps.setString(3, paciente.getSegundoApePac());
+			ps.setString(4, paciente.getEmailPac());
+			ps.setInt(5, paciente.getCelularPac());
+			ps.setString(6, paciente.getFechaRegPac());
 			resultado = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
