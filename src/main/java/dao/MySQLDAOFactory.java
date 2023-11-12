@@ -15,4 +15,9 @@ public class MySQLDAOFactory extends DAOFactory {
 		// TODO Auto-generated method stub
 		return new MySQLReservaDAO();
 	}
+	@Override
+	public CitaDAO getCitaDAO() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
