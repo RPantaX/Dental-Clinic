@@ -26,8 +26,9 @@
                         Mantenimientos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="menuPerfil">
+                    	<a class="dropdown-item" href="PacienteServlet?opcion=lis">Pacientes</a>
                         <a class="dropdown-item" href="ReservaServlet?opcion=lis">Reservas</a>
-                        <a class="dropdown-item" href="CitaServlet?opcion=lis"> Citas</a>
+                        <a class="dropdown-item" href="CitaServlet?opcion=lis">Citas</a>
                         <a class="dropdown-item" href="TrabajadorServlet?opcion=lis">Trabajadores</a>
                     </div>
                 </li>

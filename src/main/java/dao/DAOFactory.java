@@ -8,6 +8,8 @@ public abstract class DAOFactory {
 	public abstract TrabajadoresDAO getTrabajadorDAO();
 	public abstract ReservaDAO getReservaDAO();
 	public abstract CitaDAO getCitaDAO();
+	public abstract PacienteDAO getPacienteDAO();
+	
 	public static DAOFactory getDAOFactory(int qBD) {
 		
 		switch (qBD) {

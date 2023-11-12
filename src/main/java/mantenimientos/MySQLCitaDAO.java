@@ -23,17 +23,17 @@ public class MySQLCitaDAO implements CitaDAO{
 				try {
 					cn = MySQLConexion.getConexion();// generamos la conexión con la BD
 					String sql = "SELECT C.ID_CITA, C.ID_RE, R.FECHA, R.HORA,CONCAT (P.NOMBRE,' ',P.PRIMER_APE,' ',P.SEGUNDO_APE) AS PACIENTE,"
-							+ "CONCAT (T.NOM,' ',T.PRIMER_APE,' ',T.SEGUNDO_APE) AS TRABAJADOR,"
-							+ "CASE T.ID_PUESTO"
-							+ "WHEN 1 THEN 'Odontólogo(a)'"
-							+ "WHEN 2 THEN 'Odontólogo(a) Preventiva'"
+							+ " CONCAT (T.NOM,' ',T.PRIMER_APE,' ',T.SEGUNDO_APE) AS TRABAJADOR, "
+							+ "CASE T.ID_PUESTO "
+							+ "WHEN 1 THEN 'Odontólogo(a)' "
+							+ "WHEN 2 THEN 'Odontólogo(a) Preventiva' "
 							+ "WHEN 3 THEN 'Odontólogo(a) Infantil' "
-							+ "ELSE 'Recepcionista'"
-							+ "END"
-							+ "AS PUESTO, C.SALA"
-							+ "FROM PACIENTE P"
-							+ "INNER JOIN RESERVA R ON P.ID_PACIENTE=R.ID_PACIENTE"
-							+ "INNER JOIN CITA C ON R.ID_RE=C.ID_RE"
+							+ "ELSE 'Recepcionista' "
+							+ "END "
+							+ "AS PUESTO, C.SALA "
+							+ "FROM PACIENTE P "
+							+ "INNER JOIN RESERVA R ON P.ID_PACIENTE=R.ID_PACIENTE "
+							+ "INNER JOIN CITA C ON R.ID_RE=C.ID_RE "
 							+ "INNER JOIN TRABAJADOR T ON C.ID_TRABAJADOR=T.ID_TRABAJADOR";
 					pst = cn.prepareStatement(sql);
 					rs = pst.executeQuery();

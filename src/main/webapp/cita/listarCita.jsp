@@ -44,8 +44,8 @@
 			      	<td>${ct.idReserva}</td>
 			      	<td>${ct.fecha}</td>
 			      	<td>${ct.hora}</td>
-			      	<td>${ct.nombrePaciente}</td>
-			      	<td>${ct.nombreTrabajador}</td>
+			      	<td>${ct.nombresPaciente}</td>
+			      	<td>${ct.nombresTrabajador}</td>
 			      	<td>${ct.puesto}</td>
 			      	<td>${ct.sala}</td>
 			      	<td><img src="images/edit32.png"> <a href="${pageContext.request.contextPath}/CitaServlet?opcion=bus&cod=${ct.idCita}"> Actualizar </a></td>

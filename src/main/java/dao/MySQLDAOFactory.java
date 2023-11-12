@@ -1,6 +1,8 @@
 package dao;
 
 
+import mantenimientos.MySQLCitaDAO;
+import mantenimientos.MySQLPacienteDAO;
 import mantenimientos.MySQLReservaDAO;
 import mantenimientos.MySQLTrabajadorDAO;
 
@@ -18,6 +20,11 @@ public class MySQLDAOFactory extends DAOFactory {
 	@Override
 	public CitaDAO getCitaDAO() {
 		// TODO Auto-generated method stub
-		return null;
+		return new MySQLCitaDAO();
+	}
+	@Override
+	public PacienteDAO getPacienteDAO() {
+		// TODO Auto-generated method stub
+		return new MySQLPacienteDAO();
 	}
 }
