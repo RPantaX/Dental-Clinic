@@ -18,8 +18,8 @@
 				              
 				                <br>
 				                <div class="form-group">
-				                    <label for="txtNombre">Nombre</label>
-				                    <input type="text" class="form-control" id="txtNombre" name="txtNombre" required>
+				                    <label for="txtNombres">Nombre</label>
+				                    <input type="text" class="form-control" id="txtNombres" name="txtNombres" required>
 				                </div>
 				                 <br>
 				                <div class="form-group">
@@ -101,67 +101,104 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 <script type="text/javascript">
-        $(document).ready(function() {
-        	
-        	 $.validator.addMethod("numericOnly", function(value, element) {
-        	        return this.optional(element) || /^[0-9]+$/.test(value);
-        	    }, "Ingrese solo números.");
-        	 
-        	 
-            $("#frmRegistroTrabajador").validate({
-                rules: {
-                	txtPelicula: {
-                        required: true
-                    },
-                	txtAnio: {
-                        required: true,
-                        numericOnly: true 
-                    },
-                	txtDuracion: {
-                        required: true,
-                        numericOnly: true 
-                    },
-                	cboTipoIdioma: "required",
-                	txtSinopsis: "required",
-                	cboTipoPais: "required",
-                	cboTipoGenero: "required",
-                 
+    $(document).ready(function() {
+    	
+   	 $.validator.addMethod("numericOnly", function(value, element) {
+   	        return this.optional(element) || /^[0-9]+$/.test(value);
+   	    }, "Ingrese solo números.");
+   	 
+   	 $.validator.addMethod("decimalOnly", function(value, element) {
+         return this.optional(element) || /^\d+(\.\d{1,2})?$/.test(value);
+     }, "Ingrese solo números decimales.");
+       $("#frmRegistroTrabajador").validate({
+    	   rules: {
+    		    txtNombres: "required",
+    		    txtPrimerApellido: {
+    		        required: true,
+    		    },
+    		    txtSegundoApellido: {
+    		        required: true,
+    		    },
+    		    txtFechaNac:{
+                	required: true,
                 },
-                messages: {
-                	txtPelicula: "Ingrese el título de la película",
-                    txtAnio: {
-                        required: "Ingrese el año del estreno de la película",
-                        numericOnly: "Ingrese solo números para el año"
-                    },
-                    txtDuracion: {
-                        required: "Ingrese la duración de la película",
-                        numericOnly: "Ingrese solo números decimales para la duracion"
-                    },
-                    cboTipoIdioma: "Seleccione el idioma"
-                    
-                    txtSinopsis: "Ingrese la sinopsis de la película",
-                    
-                    cboTipoPais: "Seleccione el pais en donde se creó la película"
-                    
-                    cboTipoGenero: "Seleccione el género de la película"
-                    
+                txtEmail: {
+                	required: true,
+                	email: true
                 },
-                errorElement: "span",
-                errorPlacement: function(error, element) {
-                    error.addClass("invalid-feedback");
-                    element.closest(".form-group").append(error);
+    		    txtCelular: {
+    		        required: true,
+    		        numericOnly: true 
+    		    },
+    		    txtFechaIngrego:{
+                	required: true,
                 },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass("is-invalid").removeClass("is-valid");
+    		    txtSueldo: {
+    		        required: true,
+    		        decimalOnly: true 
+    		    },
+    		    txtUsuario: {
+                    required: true,
+                    minlength: 3
                 },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).removeClass("is-invalid").addClass("is-valid");
-                },
-                submitHandler: function(form) {
-                    form.submit();
+    		    txtContrasena: {
+                    required: true,
+                    minlength: 8
                 }
-            });
-        });
+    		},
+           messages: {
+        	   txtNombres: {
+                   required: "Ingrese su nombre"
+               },
+               txtPrimerApellido: {
+                   required: "Ingrese su primer apellido"
+               },
+               txtSegundoApellido:{
+                   required: "Ingrese su segundo apellido"
+               },
+               txtFechaNac:{
+                   required: "Ingrese su fecha de nacimiento"
+               },
+               txtEmail: {
+                   required: "Ingrese su correo",
+                   email: "Ingrese un correo válido"
+               },
+               txtCelular:{
+               	required: "Ingrese un número de celular"
+               },
+               txtFechaIngrego:{
+               	required: "Ingresela fecha de ingreso"
+               },
+               txtSueldo: {
+                   required: "Ingrese un sueldo"
+               },
+               txtUsuario:{
+               	required: "Ingrese un nombre de usuario"
+               },
+               txtContrasena: {
+                   required: "Ingrese su contraseña",
+                   minlength: "Tu contraseña debe tener al menos 8 caracteres"
+               },
+               
+           },
+           errorElement: "span",
+           errorPlacement: function(error, element) {
+               error.addClass("invalid-feedback");
+               element.closest(".form-group").append(error);
+           },
+           highlight: function(element, errorClass, validClass) {
+               $(element).addClass("is-invalid").removeClass("is-valid");
+           },
+           unhighlight: function(element, errorClass, validClass) {
+               $(element).removeClass("is-invalid").addClass("is-valid");
+           },
+           submitHandler: function(form) {
+               form.submit();
+           }
+       });
+   });
+    
+    
     </script>
 </body>
 </html>

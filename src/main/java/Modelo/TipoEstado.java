@@ -3,7 +3,7 @@ package Modelo;
 public class TipoEstado {
 	private int id_estado;
 	private String des_estado;
-	
+
 	public int getId_estado() {
 		return id_estado;
 	}
@@ -15,6 +15,6 @@ public class TipoEstado {
 	}
 	public void setDes_estado(String des_estado) {
 		this.des_estado = des_estado;
-	}	
-	
+	}
+
 }

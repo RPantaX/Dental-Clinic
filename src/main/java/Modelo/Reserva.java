@@ -1,19 +1,19 @@
 package Modelo;
 public class Reserva {
-	
+
 	private int id_reserva;
 	private int id_paciente;
 	private String fecha;
 	private String hora;
 	private TipoEstado estado;
 	private double precio;
-	
+
 	public Reserva() {
-		
+
 	}
-	
+
 	public Reserva(int id_reserva, int id_paciente, String fecha, String hora, TipoEstado estado, double precio) {
-		
+
 		this.id_reserva = id_reserva;
 		this.id_paciente = id_paciente;
 		this.fecha = fecha;
@@ -21,16 +21,16 @@ public class Reserva {
 		this.estado = estado;
 		this.precio = precio;
 	}
-	
+
 	public Reserva(int id_paciente, String fecha, String hora, TipoEstado estado, double precio) {
-		
+
 		this.id_paciente = id_paciente;
 		this.fecha = fecha;
 		this.hora = hora;
 		this.estado = estado;
 		this.precio = precio;
 	}
-	
+
 	public int getId_reserva() {
 		return id_reserva;
 	}

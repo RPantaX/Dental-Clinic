@@ -14,5 +14,7 @@ public interface PacienteDAO {
 	public int actualizar(Paciente paciente);
 
 	public int eliminar(int codigo);
+
+	public void generarPDF();
 	
 }

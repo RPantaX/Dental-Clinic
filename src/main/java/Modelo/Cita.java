@@ -1,7 +1,7 @@
 package Modelo;
 
 public class Cita{
-	
+
 		private int idCita;
 		private int idReserva;
 		private String fecha;
@@ -11,7 +11,7 @@ public class Cita{
 		private String puesto;
 		private int sala;
 		public Cita(){
-			
+
 		}
 		public Cita(int idCita, int idReserva, String fecha, String hora, String nombresPaciente,
 				String nombresTrabajador,String puesto, int sala) {
@@ -72,6 +72,6 @@ public class Cita{
 		public void setSala(int sala) {
 			this.sala = sala;
 		}
-		
-		
+
+
 }

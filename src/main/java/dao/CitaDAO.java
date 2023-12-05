@@ -5,8 +5,7 @@ import java.util.List;
 import Modelo.Cita;
 
 public interface CitaDAO {
-	
+
 	public List<Cita> listar();
-	
-	
+	public void generarPDF();
 }

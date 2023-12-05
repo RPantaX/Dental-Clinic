@@ -8,9 +8,9 @@ public class Paciente {
 	private String emailPac;
 	private int celularPac;
 	private String fechaRegPac;
-	
+
 	public Paciente() {}
-	
+
 	public Paciente(int idPac, String nombrePac, String primerApePac, String segundoApePac, String emailPac,
 			int celularPac, String fechaRegPac) {
 		this.idPac = idPac;
@@ -72,6 +72,6 @@ public class Paciente {
 	public void setFechaRegPac(String fechaRegPac) {
 		this.fechaRegPac = fechaRegPac;
 	}
-	
-	
+
+
 }

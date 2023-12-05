@@ -1,43 +1,52 @@
-<%@page import="Modelo.Paciente"%>
+<%@page import="Modelo.Historial"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado de Pacientes</title>
+<title>Listado Historial</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/08c2dd9070.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <%@ include file="../comun/menu.jsp" %>
-<header id="main-header" class="p-2 bg-info text-white">
-	<div class="container" >
-		<div class="row">
-			<div class="text-center">
-				<h1 class="h1 mb-2 font-weight-normal">Listado de Pacientes</h1>
+	<header id="main-header" class="p-2 bg-info text-white">
+		<div class="container" >
+			<div class="row">
+				<div class="text-center">
+					<h1 class="h1 mb-2 font-weight-normal">Historial del paciente</h1>
+				</div>
 			</div>
+			
 		</div>
-		
-	</div>
-</header>
-<section id="actions" class="p-4 mb-4 bg-light">
+	</header>
+	
+	<section id="actions" class="p-4 mb-4 bg-light">
 	<div class="container">
 			<div class="row d-flex justify-content-center">
 				<div class="col-md-3">
-					<a href="${pageContext.request.contextPath}/PacienteServlet?opcion=nue" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Nuevo Paciente </a>
-				</div>
-				<div class="col-md-3">
-					<div ><a href="${pageContext.request.contextPath}/PacienteServlet?opcion=pdf" class="btn btn-danger btn-block">Reporte en pdf</a></div>
+					<%
+				    	List<Historial> lstHistorial = (List<Historial>) request.getAttribute("lstHistorial");
+				
+				    // Verificar si la lista no está vacía y tiene al menos una fila
+				    	if (lstHistorial != null && !lstHistorial.isEmpty()) {
+				        Historial primerHistorial = lstHistorial.get(0);
+				        int primerIdHist = primerHistorial.getIdHist();
+				        int primerIdPac = primerHistorial.getIdPac();
+				        %>
+					<a href="${pageContext.request.contextPath}/HistorialServlet?opcion=nue&cod=<%=primerIdPac%>" class="btn btn-primary btn-block"><i class="fas fa-plus"></i> Nuevo Historial </a>
+						<%}%>
 				</div>
 				
 			</div>
 	</div>
-</section>
+	</section>
 
 
 	<div class="container">
@@ -45,32 +54,23 @@
 					<table id="table" class="table table-striped">
 						<thead class="thead-dark">
 							<tr>
-								<th>Id</th>
-								<th>Nombre</th>
-								<th>1° Apellido</th>
-								<th>2° Apellido</th>
-								<th>Email</th>
-								<th>Celular</th>
-								<th>Fecha registro</th>
-								<th></th>
-								<th></th>
-								<th></th>
+								<th>Id Historial</th>
+								<th>Id Paciente</th>
+								<th>Descripcion</th>
+								<th>Fecha</th>
+								<th>ID trabajador</th>
+								<th>Trabajador</th>
 							</tr>
 						</thead>
 							<tbody>
-							<c:forEach items="${lstPacientes}" var="pa">
+							<c:forEach items="${lstHistorial}" var="pa">
 									<tr>
+										<td>${pa.idHist}</td>
 										<td>${pa.idPac}</td>
-										<td>${pa.nombrePac}</td>
-										<td>${pa.primerApePac}</td>
-										<td>${pa.segundoApePac}</td>
-										<td>${pa.emailPac}</td>
-										<td>${pa.celularPac}</td>
-										<td>${pa.fechaRegPac}</td>
-										<td> <a href="${pageContext.request.contextPath}/HistorialServlet?opcion=lis&cod=${pa.idPac}" class="btn btn-secondary" > <i class="fa-solid fa-book"></i> Historial </a></td>
-										<td> <a href="${pageContext.request.contextPath}/PacienteServlet?opcion=bus&cod=${pa.idPac}" class="btn btn-secondary"> <i class="fas fa-angle-double-right"></i> Actualizar </a></td>
-						      			<td> <a href="${pageContext.request.contextPath}/PacienteServlet?opcion=eli&cod=${pa.idPac}"class="btn btn-danger"> <i class="fas fa-angle-double-right"></i> Eliminar </a></td>
-										
+										<td>${pa.desc}</td>
+										<td>${pa.fecha}</td>
+										<td>${pa.idTrabajador}</td>
+										<td>${pa.nombresTrab}</td>
 									</tr>
 								</c:forEach>
 						</tbody>
@@ -104,5 +104,6 @@
 	  		});
 	  	});
 	  </script>
+
 </body>
 </html>

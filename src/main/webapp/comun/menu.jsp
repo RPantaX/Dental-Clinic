@@ -21,31 +21,21 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Inicio</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuPerfil" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Mantenimientos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuPerfil">
-                    	<a class="dropdown-item" href="PacienteServlet?opcion=lis">Pacientes</a>
-                        <a class="dropdown-item" href="ReservaServlet?opcion=lis">Reservas</a>
-                        <a class="dropdown-item" href="CitaServlet?opcion=lis">Citas</a>
-                        <a class="dropdown-item" href="TrabajadorServlet?opcion=lis">Trabajadores</a>
-                    </div>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="menuPerfil" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Consultas
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="menuPerfil">
-                        <a class="dropdown-item" href="#">Consulta 1</a>
-                        <a class="dropdown-item" href="#">Consulta 2</a>
-                        <a class="dropdown-item" href="#">Consulta 3</a>
-                    </div>
-                </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="loginServlet?opcion=cer">Cerrar Sesión</a>
+                    <a class="nav-link" href="PacienteServlet?opcion=lis">Pacientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ReservaServlet?opcion=lis">Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="CitaServlet?opcion=lis">Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="TrabajadorServlet?opcion=lis">Trabajadores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="TrabajadorServlet?opcion=lis">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>

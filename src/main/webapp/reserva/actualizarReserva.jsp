@@ -20,23 +20,23 @@
 				               <br>
 				                <div class="form-group">
 				                    <label for="txtCodigo">Codigo</label>
-				                    <input type="text" class="form-control" id="txtCodigo" name="txtCodigo" readonly="readonly" value="${reserva.id_reserva}" required>
+				                    <input type="text" class="form-control" id="txtCodigo" name="txtCodigo" readonly="readonly" value="${reserva.id_reserva}">
 				                </div>
 				                <br>
 				                <div class="form-group">
 				                    <label for="txtIdPaciente">Id Paciente</label>
-				                    <input type="text" class="form-control" id="txtIdPaciente" name="txtIdPaciente" readonly="readonly" value="${reserva.id_paciente}" required>
+				                    <input type="text" class="form-control" id="txtIdPaciente" name="txtIdPaciente" readonly="readonly" value="${reserva.id_paciente}">
 				                </div>
 				                
 				                <br>
 				                <div class="form-group">
 				                    <label for="txtFecha">Fecha</label>
-				                    <input type="text" class="form-control" id="txtFecha" name="txtFecha" value="${reserva.fecha}" required>
+				                    <input type="text" class="form-control" id="txtFecha" name="txtFecha" value="${reserva.fecha}">
 				                </div>
 				                 <br>
 				                <div class="form-group">
 				                    <label for="txtHora">Hora</label>
-				                    <input type="text" class="form-control" id="txtHora" name="txtHora" value="${reserva.hora}" required>
+				                    <input type="text" class="form-control" id="txtHora" name="txtHora" value="${reserva.hora}">
 				                </div>
 				                
 				                <br>
@@ -51,7 +51,7 @@
 				                
 				                <div class="form-group">
 				                	<label for="txtPrecio">Precio</label>
-				                	<input type="number" class="form-control" id="txtPrecio" name="txtPrecio" value="${reserva.precio}" required>
+				                	<input type="number" class="form-control" id="txtPrecio" name="txtPrecio" value="${reserva.precio}">
 				                </div>
 				                <br>
 
@@ -80,48 +80,37 @@
     <script type="text/javascript">
     $(document).ready(function() {
     	
-   	 /*$.validator.addMethod("numericOnly", function(value, element) {
+   	 $.validator.addMethod("numericOnly", function(value, element) {
    	        return this.optional(element) || /^[0-9]+$/.test(value);
-   	    }, "Ingrese solo números.");*/
+   	    }, "Ingrese solo números.");
    	 
-   	 
-       $("#frmRegistroPelicula").validate({
-           rules: {
-           	txtTitulo: {
-                   required: true
-               },
-           	txtAnio: {
-                   required: true,
-                   numericOnly: true 
-               },
-           	txtDuracion: {
-                   required: true,
-                   numericOnly: true 
-               },
-           	cboTipoIdioma: "required",
-           	txtSinopsis: "required",
-           	cboTipoPais: "required",
-           	cboTipoGenero: "required",
-            
-           },
+   	 $.validator.addMethod("decimalOnly", function(value, element) {
+         return this.optional(element) || /^\d+(\.\d{1,2})?$/.test(value);
+     }, "Ingrese solo números decimales.");
+       $("#frmRegistroReserva").validate({
+    	   rules: {
+    		   txtFecha:{
+    			   required: true,
+    		   },
+    		   txtHora:{
+    			   required: true,
+    		   },
+    		   txtPrecio:{
+    			   required: true,
+    			   decimalOnly: true
+    		   }  
+    		},
            messages: {
-           	txtTitulo: "Ingrese el título de la película",
-               txtAnio: {
-                   required: "Ingrese el año del estreno de la película",
-                   numericOnly: "Ingrese solo números para el año"
+               txtFecha:{
+            	   required:"Ingrese la fecha de reserva",
                },
-               txtDuracion: {
-                   required: "Ingrese la duración de la película",
-                   numericOnly: "Ingrese solo números decimales para la duracion"
+               txtHora:{
+            	   required:"Ingrese la hora de reserva",
                },
-               cboTipoIdioma: "Seleccione el idioma"
-               
-               txtSinopsis: "Ingrese la sinopsis de la película",
-               
-               cboTipoPais: "Seleccione el pais en donde se creó la película"
-               
-               cboTipoGenero: "Seleccione el género de la película"
-               
+               txtPrecio: {
+                   required: "Ingrese un precio",
+                   decimalOnly: "Ingrese solo números decimales"
+               },
            },
            errorElement: "span",
            errorPlacement: function(error, element) {
@@ -139,6 +128,7 @@
            }
        });
    });
+  
     </script>
 </body>
 </html>

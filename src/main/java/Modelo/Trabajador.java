@@ -79,7 +79,7 @@ public class Trabajador {
 	public void setSegundoApe(String segundoApe) {
 		this.segundoApe = segundoApe;
 	}
-	
+
 	public String getFechaNac() {
 		return fechaNac;
 	}

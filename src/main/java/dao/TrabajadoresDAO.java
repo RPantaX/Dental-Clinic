@@ -16,6 +16,8 @@ public interface TrabajadoresDAO {
 
 	public int eliminar(int codigo);
 	public Trabajador validarTrabajador(String usuario, String contrasena);
- 
+
+	public void generarPDF();
+
 }
 
